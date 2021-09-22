@@ -51,8 +51,8 @@ export const routes: Routes = [
     },
     children: [
       {
-        path: 'base',
-        loadChildren: () => import('./views/base/base.module').then(m => m.BaseModule)
+        path: 'employee',
+        loadChildren: () => import('./views/employee/employee.module').then(m => m.EmployeeModule)
       },
       {
         path: 'buttons',
