@@ -15,6 +15,10 @@ export const navItems: INavData[] = [
     name: 'Stan magazynowy',
     url: '/stock',
     icon: 'icon-puzzle'
+  },{
+    name: 'Wydarzenia',
+    url: '/events',
+    icon: 'icon-puzzle'
   }
 
 ];
