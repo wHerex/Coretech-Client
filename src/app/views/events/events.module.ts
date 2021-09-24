@@ -1,5 +1,5 @@
 import {EventsComponent} from './events.component';
-import {CommonModule} from '@angular/common';
+import {CommonModule, registerLocaleData} from '@angular/common';
 import {EventsRoutingModule} from './events-routing.module';
 import {FormsModule} from '@angular/forms';
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
@@ -9,8 +9,13 @@ import {PaginationModule} from 'ngx-bootstrap/pagination';
 import {PopoverModule} from 'ngx-bootstrap/popover';
 import {ProgressbarModule} from 'ngx-bootstrap/progressbar';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import {TabsModule} from 'ngx-bootstrap/tabs';
+import {CalendarModule, DateAdapter} from 'angular-calendar';
+import {adapterFactory} from 'angular-calendar/date-adapters/date-fns';
+import {plLocale} from 'ngx-bootstrap/chronos';
+
+registerLocaleData('pl-P', 'pl');
 
 @NgModule({
   imports: [
@@ -24,10 +29,18 @@ import {TabsModule} from 'ngx-bootstrap/tabs';
     PaginationModule.forRoot(),
     PopoverModule.forRoot(),
     ProgressbarModule.forRoot(),
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    }),
+  ],
+  providers: [
+    {provide: LOCALE_ID, useValue: plLocale}
   ],
   declarations: [
     EventsComponent
   ]
 })
-export class EventsModule { }
+export class EventsModule {
+}

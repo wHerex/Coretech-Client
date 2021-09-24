@@ -18,11 +18,6 @@ import { AppComponent } from './app.component';
 // Import containers
 import { DefaultLayoutComponent } from './containers';
 
-import { P404Component } from './views/bin/error/404.component';
-import { P500Component } from './views/bin/error/500.component';
-import { LoginComponent } from './views/bin/login/login.component';
-import { RegisterComponent } from './views/bin/register/register.component';
-
 const APP_CONTAINERS = [
   DefaultLayoutComponent
 ];
@@ -43,6 +38,12 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import {EmployeeModule} from './views/employee/employee.module';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from './services/auth.interceptor';
+import {LoginComponent} from './views/login/login.component';
+import {RegisterComponent} from './views/register/register.component';
+import {P404Component} from './views/error/404.component';
+import {P500Component} from './views/error/500.component';
 
 @NgModule({
   imports: [
@@ -75,6 +76,11 @@ import {EmployeeModule} from './views/employee/employee.module';
       useClass: HashLocationStrategy
     },
     IconSetService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [ AppComponent ]
 })

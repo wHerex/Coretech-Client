@@ -7,7 +7,7 @@ const routes: Routes = [
     path: '',
     component: EmployeesComponent,
     data: {
-      title: 'Employee'
+      title: 'employee.ts'
     },
   }
 ];

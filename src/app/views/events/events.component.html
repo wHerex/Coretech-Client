@@ -1,0 +1,49 @@
+<div class="animated fadeIn">
+
+  <div class="calendar-view"
+       [ngClass]="addStylesIfDayView()"
+       *ngIf="events$ | async as events"
+       [ngSwitch]="calendarView">
+
+    <mwl-calendar-month-view
+      *ngSwitchCase="CalendarView.Month"
+      [viewDate]="viewDate"
+      [activeDayIsOpen]="isActiveDayOpen"
+      [locale]="locale"
+      [weekStartsOn]="weekStartDay"
+      (dayClicked)="onDayClick($event.day)"
+      (eventClicked)="viewDetails($event.event)">
+    </mwl-calendar-month-view>
+
+    <mwl-calendar-week-view
+      *ngSwitchCase="CalendarView.Week"
+      [viewDate]="viewDate"
+      [locale]="locale"
+      [weekStartsOn]="weekStartDay"
+      [hourSegments]="hourSegments"
+      (eventClicked)="viewDetails($event.event)">
+    </mwl-calendar-week-view>
+
+  <!--  <mwl-calendar-day-view
+      *ngSwitchCase="CalendarView.Day"
+      [viewDate]="viewDate"
+      [locale]="locale"
+      [hourSegments]="hourSegments"
+      (eventClicked)="viewDetails($event.event)">
+    </mwl-calendar-day-view>-->
+
+  </div>
+  <ng-template #cellTemplate let-day="day" let-locale="locale">
+
+    <div class="cal-cell-top">
+      <span class="cal-day-badge" *ngIf="day.badgeTotal > 0">{{ day.badgeTotal }}</span>
+      <span class="cal-day-number">
+        {{ day.date | calendarDate:'monthViewDayNumber':locale }}
+      </span>
+    </div>
+
+    <ng-container *ngFor="let ev of day.events"></ng-container>
+
+  </ng-template>
+
+</div>

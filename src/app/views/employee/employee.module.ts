@@ -11,6 +11,7 @@ import {ProgressbarModule} from 'ngx-bootstrap/progressbar';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import {NgModule} from '@angular/core';
 import {TabsModule} from 'ngx-bootstrap/tabs';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import {TabsModule} from 'ngx-bootstrap/tabs';
     FormsModule,
     BsDropdownModule.forRoot(),
     TabsModule,
+    MatTableModule,
     CarouselModule.forRoot(),
     CollapseModule.forRoot(),
     PaginationModule.forRoot(),
