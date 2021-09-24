@@ -12,6 +12,8 @@ import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import {NgModule} from '@angular/core';
 import {TabsModule} from 'ngx-bootstrap/tabs';
 import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
+import {EmployeeService} from './employee.service';
 
 @NgModule({
   imports: [
@@ -26,10 +28,11 @@ import {MatTableModule} from '@angular/material/table';
     PaginationModule.forRoot(),
     PopoverModule.forRoot(),
     ProgressbarModule.forRoot(),
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    MatButtonModule,
   ],
   declarations: [
-    EmployeesComponent
+    EmployeesComponent,
   ]
 })
 export class EmployeeModule { }

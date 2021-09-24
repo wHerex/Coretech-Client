@@ -61,6 +61,7 @@ import {P500Component} from './views/error/500.component';
     ChartsModule,
     IconModule,
     IconSetModule.forRoot(),
+    EmployeeModule
   ],
   declarations: [
     AppComponent,
