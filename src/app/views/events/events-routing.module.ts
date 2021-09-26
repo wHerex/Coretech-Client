@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {EventsComponent} from './events.component';
+import {DemoComponent} from './events.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: EventsComponent,
+    component: DemoComponent,
     data: {
       title: 'Events'
     },

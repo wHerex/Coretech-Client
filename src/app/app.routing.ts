@@ -63,7 +63,7 @@ export const routes: Routes = [
       },
       {
         path: 'events',
-        loadChildren: () => import('./views/events/events.module').then(m => m.EventsModule)
+        loadChildren: () => import('./views/events/events.module').then(m => m.DemoModule)
       },
       {
         path: 'dashboard',
