@@ -24,13 +24,13 @@
       (eventClicked)="viewDetails($event.event)">
     </mwl-calendar-week-view>
 
-  <!--  <mwl-calendar-day-view
+    <mwl-calendar-day-view
       *ngSwitchCase="CalendarView.Day"
       [viewDate]="viewDate"
       [locale]="locale"
       [hourSegments]="hourSegments"
       (eventClicked)="viewDetails($event.event)">
-    </mwl-calendar-day-view>-->
+    </mwl-calendar-day-view>
 
   </div>
   <ng-template #cellTemplate let-day="day" let-locale="locale">

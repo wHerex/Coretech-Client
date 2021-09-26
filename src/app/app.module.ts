@@ -49,6 +49,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {CredentialsFormModule} from './views/credential-form/credential-form.module';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {TranslateModule} from '@ngx-translate/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -76,6 +77,7 @@ import {TranslateModule} from '@ngx-translate/core';
       HttpClientModule,
       MatSnackBarModule,
       TranslateModule.forRoot(),
+      NgbModule,
     ],
   declarations: [
     AppComponent,

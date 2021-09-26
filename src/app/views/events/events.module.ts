@@ -13,9 +13,16 @@ import {LOCALE_ID, NgModule} from '@angular/core';
 import {TabsModule} from 'ngx-bootstrap/tabs';
 import {CalendarModule, DateAdapter} from 'angular-calendar';
 import {adapterFactory} from 'angular-calendar/date-adapters/date-fns';
-import {plLocale} from 'ngx-bootstrap/chronos';
+import localePl from '@angular/common/locales/pl';
+import {ModalComponent} from './modal/modal-component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 
-registerLocaleData('pl-P', 'pl');
+const plLocale = 'pl-PL';
+
+registerLocaleData(localePl);
 
 @NgModule({
   imports: [
@@ -34,12 +41,17 @@ registerLocaleData('pl-P', 'pl');
       provide: DateAdapter,
       useFactory: adapterFactory
     }),
+    MatFormFieldModule,
+    MatDialogModule,
+    MatInputModule,
+    MatButtonModule,
   ],
   providers: [
     {provide: LOCALE_ID, useValue: plLocale}
   ],
   declarations: [
-    EventsComponent
+    EventsComponent,
+    ModalComponent
   ]
 })
 export class EventsModule {
